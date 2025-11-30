@@ -16,7 +16,7 @@
   }
 }
 
-.nav-link {
+.nav{
   display: flex;
   margin: 0;
   padding: 0;
@@ -30,7 +30,7 @@
     font-size: 12px;
   }
 
-  &__text {
+  &__link {
     display: inline-block;
     position: relative;
     line-height: 60px;
@@ -38,6 +38,8 @@
     text-decoration: none;
     text-transform: uppercase;
     color: $main-accent;
+
+    transition: color 300ms ease-in-out;
   }
 
   &__box:first-child {
@@ -48,11 +50,11 @@
     margin-right: 0;
   }
 
-  &__text:hover {
+  &__link:hover {
     color: $blue-accent;
   }
 
-  &__text:focus::after,
+  &__link:focus::after,
   .is-active::after {
     position: absolute;
     bottom: 0;

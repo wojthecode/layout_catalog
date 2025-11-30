@@ -12,21 +12,11 @@
   justify-items: center;
 }
 
-@media screen and (min-width: 488px) and (max-width: 767px) {
-  .cards-container {
-    grid-template-columns: repeat(2, 200px);
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1023px) {
-  .cards-container {
-    grid-template-columns: repeat(3, 200px);
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .cards-container {
-    grid-template-columns: repeat(4, 200px);
+@each $width, $cards in $resolutions {
+  @media screen and (min-width: #{$width}) {
+    .cards-container {
+      grid-template-columns: repeat(#{$cards}, 200px);
+    }
   }
 }
 
@@ -42,7 +32,7 @@
   flex-direction: column;
   align-items: center;
 
-  transition: transform 300ms;
+  transition: transform 300ms ease-in-out;
 
   &__section {
     width: 166px;
@@ -65,7 +55,7 @@
       font-size: 12px;
       font-weight: 500;
 
-      transition: color 300ms;
+      transition: color 300ms ease-in-out;
     }
 
     &--code {
@@ -123,8 +113,8 @@
     text-align: center;
 
     transition:
-      background-color 300ms,
-      color 300ms;
+      background-color 300ms ease-in-out,
+      color 300ms linear;
 
     &:hover {
       background-color: $card-background;
